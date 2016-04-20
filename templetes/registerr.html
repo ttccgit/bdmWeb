@@ -1,0 +1,70 @@
+﻿<div class="row">
+    <div class="col-md-10">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>会员Id
+                    </th>
+                    <th>String会员Id
+                    </th>
+                    <th>会员体系
+                    </th>
+                    <th>错误类型
+                    </th>
+                    <th>错误信息
+                    </th>
+                    <th>注册信息集合
+                    </th>
+                    <th>修改状态
+                    </th>
+                    <th>请求账号
+                    </th>
+                    <th>请求Ip
+                    </th>
+                    <th>创建时间
+                    </th>
+                     <th>更新时间
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in registErr" repeat-done="initPopover()">
+                    <td>{{c.IntId}}</td>
+                    <td>{{c.StringId}}</td>
+                    <td>{{c.MemberSystem}}</td>
+                    <td>{{c.ErrType}}</td>
+                    <td>{{c.ErrStatus}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="right" data-content="{{c.RegistInfo}}">
+                            注册明细
+                        </button>
+                    </td>
+                    <td>{{c.RegistStatus}}</td>
+                    <td>{{c.ReqAct}}</td>
+                    <td>{{c.ReqIp}}</td>
+                    <td>{{c.CreateTime}}</td>
+                    <td>{{c.UpdateTime}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-class="style.older"><a ng-click="older()"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                <li ng-class="style.newer"><a ng-click="newer()">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-2">
+        <div class="list-group">
+            <a class="list-group-item">
+                <input type="text" ng-model="queryWhere.errType" placeholder="错误类型" class="form-control" /></a>
+            <a class="list-group-item">
+                <input type="text" ng-model="queryWhere.registStatus" placeholder="修改状态" class="form-control" /></a>
+            <a class="list-group-item">
+                <input type="text" ng-model="queryWhere.errMemberId" placeholder="会员Id" class="form-control" /></a>
+        </div>
+    </div>
+</div>
+
+
+

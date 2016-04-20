@@ -1,0 +1,14 @@
+﻿<form class="form-signin">
+    <label for="inputEmail" class="sr-only">工号</label>
+    <input type="text" id="username" class="form-control" placeholder="工号" ng-model="loginData.userName" required="" autofocus="" />
+    <br />
+    <label for="inputPassword" class="sr-only">密码</label>
+    <input type="password" id="password" class="form-control" placeholder="密码" ng-model="loginData.password" required="" />
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me" />
+            记住我
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" id="login" type="button" ng-click="login()">登陆</button>
+</form>

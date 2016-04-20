@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-md-10">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>键
+                    </th>
+                    <th>整数值
+                    </th>
+                    <th>字符值
+                    </th>
+                    <th>创建时间
+                    </th>
+                    <th>更新时间
+                    </th>
+                    <th>操作 <a href="/#/createConfig"> + </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in configs" repeat-done="initPopover()">
+                    <td>{{c.Key}}</td>
+                    <td>{{c.IntValue}}</td>
+                    <td>{{c.StringValue}}</td>
+                    <td>{{c.CreateTime}}</td>
+                    <td>{{c.UpdateTime}}</td>
+                    <td> <a href="/#/editConfig"  ng-click="editconfig(c)" >....✎</a><a href="/#/config" ng-click="deleteconfig(c)"> .....✘  </a> </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pager">
+                <li ng-class="style.older"><a ng-click="older()"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+                <li ng-class="style.newer"><a ng-click="newer()">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-2">
+        <div class="list-group">
+            <a class="list-group-item">
+                <input type="text" ng-model="queryWhere.key" placeholder="key" class="form-control" /></a>
+        </div>
+    </div>
+</div>
+
+

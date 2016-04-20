@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" ng-app="webApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title ng-bind="$state.current.data.pageTitle"></title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <link href="bower_components/messenger/build/css/messenger.css" rel="stylesheet" />
+</head>
+<body ng-controller="indexContrl">
+    <nav ng-if="user.isAuth" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">基础数据平台管理系统</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a>Hi,{{username}}</a></li>
+                    <li><a ng-click="logout()">注销</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-if="user.isAuth" class="col-sm-1 col-md-2 sidebar">
+                <ul  class="nav nav-sidebar">
+                    <li><a href="/#/cuts">系统接口管理</a></li>
+                    <li><a href="/#/transErr">系统后台管理</a></li>
+                    <li><a href="/#/registErr">系统JOB管理</a></li>
+                    <li><a href="/#/updateErr">系统前台管理 </a></li>
+                </ul>
+            </div>
+            <div class="col-sm-11 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+    <script src="bower_components/messenger/build/js/messenger.js"></script>
+    <script src="app.js"></script>
+    <script src="services/authInterceptorService.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="services/userService.js"></script>
+    <script src="controllers/homeContrl.js"></script>
+    <script src="page.js"></script>
+    <script src="directives/repeatDone.js"></script>
+</body>
+</html>
